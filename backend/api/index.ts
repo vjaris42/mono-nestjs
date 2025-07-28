@@ -15,9 +15,9 @@ async function createApp(): Promise<INestApplication> {
         'http://localhost:3002',
         'http://localhost:3003',
         // Add your Vercel URLs here after deployment
-        'https://your-admin-app.vercel.app',
-        'https://your-user-app.vercel.app',
-        'https://your-analytics-app.vercel.app',
+        'https://admin-panel-ten-ivory.vercel.app/',
+        'https://user-dashboard-theta-six.vercel.app/',
+        'https://analytics-dashboard-beta-seven.vercel.app/',
       ],
       credentials: true,
     });

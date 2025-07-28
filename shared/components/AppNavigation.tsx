@@ -28,7 +28,7 @@ export function AppNavigation({ currentApp }: AppNavigationProps) {
       name: 'Admin Panel',
       key: 'admin' as const,
       url: process.env.NODE_ENV === 'production' 
-        ? 'https://your-admin-app.vercel.app' 
+        ? 'https://admin-panel-ten-ivory.vercel.app/' 
         : 'http://localhost:3000',
       description: 'User management and system administration',
       requiresAdmin: true
@@ -37,7 +37,7 @@ export function AppNavigation({ currentApp }: AppNavigationProps) {
       name: 'User Dashboard',
       key: 'user' as const,
       url: process.env.NODE_ENV === 'production' 
-        ? 'https://your-user-app.vercel.app' 
+        ? 'https://user-dashboard-theta-six.vercel.app/' 
         : 'http://localhost:3002',
       description: 'Personal dashboard and profile management',
       requiresAdmin: false
@@ -46,7 +46,7 @@ export function AppNavigation({ currentApp }: AppNavigationProps) {
       name: 'Analytics',
       key: 'analytics' as const,
       url: process.env.NODE_ENV === 'production' 
-        ? 'https://your-analytics-app.vercel.app' 
+        ? 'https://analytics-dashboard-beta-seven.vercel.app/' 
         : 'http://localhost:3003',
       description: 'System analytics and reports',
       requiresAdmin: true
