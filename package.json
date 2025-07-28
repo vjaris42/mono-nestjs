@@ -1,0 +1,58 @@
+{
+  "name": "mono-app",
+  "version": "1.0.0",
+  "description": "Multi-deployment application with Next.js frontends and NestJS backend",
+  "private": true,
+  "workspaces": [
+    "admin",
+    "user",
+    "analytics",
+    "backend",
+    "shared"
+  ],
+  "scripts": {
+    "dev:admin": "cd admin && npm run dev -- --port 3000",
+    "dev:user": "cd user && npm run dev -- --port 3002",
+    "dev:analytics": "cd analytics && npm run dev -- --port 3003",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:admin\" \"npm run dev:user\" \"npm run dev:analytics\"",
+    "build:admin": "cd admin && npm run build",
+    "build:user": "cd user && npm run build",
+    "build:analytics": "cd analytics && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:all": "npm run build:backend && npm run build:admin && npm run build:user && npm run build:analytics",
+    "deploy:vercel": "./deploy.sh",
+    "deploy:backend": "cd backend && vercel --prod",
+    "deploy:admin": "cd admin && vercel --prod", 
+    "deploy:user": "cd user && vercel --prod",
+    "deploy:analytics": "cd analytics && vercel --prod",
+    "start:admin": "cd admin && npm start -- --port 3000",
+    "start:user": "cd user && npm start -- --port 3002",
+    "start:analytics": "cd analytics && npm start -- --port 3003",
+    "start:backend": "cd backend && npm run start:prod",
+    "test:all": "npm run test:backend && npm run test:admin && npm run test:user && npm run test:analytics",
+    "test:admin": "cd admin && npm test",
+    "test:user": "cd user && npm test",
+    "test:analytics": "cd analytics && npm test",
+    "test:backend": "cd backend && npm test",
+    "lint:all": "npm run lint:admin && npm run lint:user && npm run lint:analytics && npm run lint:backend",
+    "lint:admin": "cd admin && npm run lint",
+    "lint:user": "cd user && npm run lint",
+    "lint:analytics": "cd analytics && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "install:all": "npm install && cd shared && npm install && cd ../admin && npm install && cd ../user && npm install && cd ../analytics && npm install && cd ../backend && npm install",
+    "clean": "rm -rf node_modules admin/node_modules user/node_modules analytics/node_modules backend/node_modules shared/node_modules admin/.next user/.next analytics/.next backend/dist"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sonner": "^2.0.6"
+  }
+}
